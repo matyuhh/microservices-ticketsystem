@@ -19,6 +19,7 @@
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
     "types": ["node", "express"],
+    "typeRoots": ["./src/types", "./node_modules/@types"],
     "lib": [
         "es2019",
         "DOM",
