@@ -1,5 +1,6 @@
+export interface CurrentUser {
+    email: string;
+}
 export interface User {
-    currentUser?: {
-        email: string;
-    }
+    currentUser?: CurrentUser,
 }
