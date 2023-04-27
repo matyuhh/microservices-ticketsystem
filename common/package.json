@@ -1,14 +1,14 @@
 {
   "name": "@mgmts/common",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "files": [
-    "./build/**/*"
+    "build/**/*"
   ],
   "scripts": {
-    "clean": "del-cli ./build/**/*",
+    "clean": "del ./build/**/*",
     "build": "npm run clean && tsc"
   },
   "keywords": [],
