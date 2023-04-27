@@ -21,7 +21,7 @@ declare module "jsonwebtoken" {
   }
 }
 
-const currentUser = (
+export const currentUser = (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -36,4 +36,3 @@ const currentUser = (
   return next();
 };
 
-export default currentUser;
