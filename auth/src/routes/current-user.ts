@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 
-import currentUser from '@mgmts/common/build/middlewares/current-user';
+import { currentUser } from '@mgmts/common';
 
 const router = Router();
 

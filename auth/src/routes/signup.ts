@@ -1,8 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { body } from 'express-validator';
 import jwt from 'jsonwebtoken';
-import validateRequest from '@mgmts/common/build/middlewares/validate-request';
-import BadRequestError from '@mgmts/common/build/errors/bad-request-error';
+import { validateRequest, BadRequestError } from '@mgmts/common';
 
 import User from '../models/user';
 

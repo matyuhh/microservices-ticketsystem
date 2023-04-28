@@ -2,8 +2,7 @@ import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
-import errorHandler from '@mgmts/common/build/middlewares/error-handler';
-import NotFoundError from '@mgmts/common/build/errors/not-found-error';
+import { errorHandler, NotFoundError } from '@mgmts/common';
 
 import currentUserRouter from './routes/current-user';
 import signinRouter from './routes/signin';
