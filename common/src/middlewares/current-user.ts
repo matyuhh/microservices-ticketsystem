@@ -33,6 +33,6 @@ export const currentUser = (
     req.currentUser = payload;
   } catch (err) { /* empty */ }
 
-  return next();
+  next();
 };
 
