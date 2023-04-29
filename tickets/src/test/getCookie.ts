@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
+import { Types } from 'mongoose';
 
 const getCookie = (): string[] => {
   const payload = {
-    id: 'testid',
+    id: new Types.ObjectId().toHexString(),
     email: 'test@test.com',
   };
 
