@@ -3,6 +3,7 @@ import { Types } from 'mongoose';
 
 import app from '../../app';
 import getCookie from '../../test/getCookie';
+import natsWrapper from '../../nats-wrapper';
 
 describe('Update related tests', () => {
   const id = new Types.ObjectId().toHexString();
@@ -91,5 +92,29 @@ describe('Update related tests', () => {
 
     expect(updatedTicketResponse.body.title).toEqual('newtitle');
     expect(updatedTicketResponse.body.price).toEqual(25);
+  });
+
+  it('publishes an event', async () => {
+    const cookie = getCookie();
+
+    const createdTicketResponse = await request(app)
+      .post('/api/tickets')
+      .set('Cookie', cookie)
+      .send({
+        title: 'title',
+        price: 20,
+      })
+      .expect(201);
+
+    await request(app)
+      .put(`/api/tickets/${createdTicketResponse.body.id}`)
+      .set('Cookie', cookie)
+      .send({
+        title: 'newtitle',
+        price: 25,
+      })
+      .expect(200);
+
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
   });
 });
