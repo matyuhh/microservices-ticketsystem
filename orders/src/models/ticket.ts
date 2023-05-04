@@ -1,9 +1,8 @@
 import { Schema, model } from 'mongoose';
 
-interface ITicket {
+export interface ITicket {
   title: string;
   price: number;
-  userId: string;
 }
 
 const ticketSchema = new Schema<ITicket>({
@@ -15,10 +14,6 @@ const ticketSchema = new Schema<ITicket>({
     type: Number,
     required: true,
     min: 0,
-  },
-  userId: {
-    type: String,
-    required: true,
   },
 }, {
   toJSON: {
