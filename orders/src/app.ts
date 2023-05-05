@@ -4,6 +4,11 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@mgmts/common';
 
+import deleteOrderRouter from './routes/delete';
+// import showOrderRouter from './routes/show';
+// import newOrderRouter from './routes/new';
+// import indexOrderRouter from './routes/index';
+
 const app = express();
 app.set('trust proxy', true);
 
@@ -15,6 +20,10 @@ app.use(cookieSession({
 app.use(currentUser);
 
 // Routes
+app.use(deleteOrderRouter);
+// app.use(showOrderRouter);
+// app.use(newOrderRouter);
+// app.use(indexOrderRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
